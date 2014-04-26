@@ -2,7 +2,7 @@
   = link_to requests_path, :class => 'btn btn-default' do
     %span.glyphicon.glyphicon-list-alt
     Back
-  = link_to @request, :class => 'btn btn-primary' do
+  = link_to request_path(request_object), :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-info-sign
     Show
   %h1 Editing request
