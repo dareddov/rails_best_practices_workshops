@@ -1,31 +1,13 @@
 class OffersController < ApplicationController
+  expose(:offer, attributes: :offer_params)
+  expose(:offers)
+
   before_action :authenticate_user!
   before_action :set_offer, only: [:show, :edit, :update, :destroy]
 
-  # GET /offers
-  def index
-    @offers = Offer.all
-  end
-
-  # GET /offers/1
-  def show
-  end
-
-  # GET /offers/new
-  def new
-    @offer = Offer.new
-  end
-
-  # GET /offers/1/edit
-  def edit
-  end
-
-  # POST /offers
   def create
-    @offer = Offer.new(offer_params)
-
-    if @offer.save
-      redirect_to @offer, notice: 'Offer was successfully created.'
+    if offer.save
+      redirect_to offer, notice: 'Offer was successfully created.'
     else
       render :new
     end
@@ -42,7 +24,7 @@ class OffersController < ApplicationController
 
   # DELETE /offers/1
   def destroy
-    @offer.destroy
+    offer.destroy
     redirect_to offers_url, notice: 'Offer was successfully destroyed.'
   end
 
@@ -54,6 +36,6 @@ class OffersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def offer_params
-      params.require(:offer).permit(:owner_id_id, :message)
+      params.require(:offer).permit(:message)
     end
 end

@@ -14,23 +14,23 @@
 ActiveRecord::Schema.define(version: 20140426084625) do
 
   create_table "offers", force: true do |t|
-    t.integer  "owner_id_id"
+    t.integer  "owner_id"
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "offers", ["owner_id_id"], name: "index_offers_on_owner_id_id"
+  add_index "offers", ["owner_id"], name: "index_offers_on_owner_id"
 
   create_table "requests", force: true do |t|
-    t.integer  "owner_id_id"
+    t.integer  "owner_id"
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "requests", ["owner_id_id"], name: "index_requests_on_owner_id_id"
+  add_index "requests", ["owner_id"], name: "index_requests_on_owner_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
