@@ -1,4 +1,6 @@
 RailsBestPracticesWorkshops::Application.routes.draw do
+  resources :offers
+
   resources :requests
 
   resources :users

@@ -1,0 +1,14 @@
+.page-header
+  = link_to offers_path, :class => 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_offer_path(@offer), :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show offer
+
+%dl.dl-horizontal
+  %dt Owner:
+  %dd= @offer.owner_id
+  %dt Message:
+  %dd= @offer.message

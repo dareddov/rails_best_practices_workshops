@@ -1,0 +1,24 @@
+.page-header
+  = link_to new_offer_path, :class => 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Offer
+  %h1 Listing offers
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Owner
+        %th Message
+        %th
+        %th
+        %th
+
+    %tbody
+      - @offers.each do |offer|
+        %tr
+          %td= offer.owner_id
+          %td= offer.message
+          %td= link_to 'Show', offer
+          %td= link_to 'Edit', edit_offer_path(offer)
+          %td= link_to 'Destroy', offer, :data => { confirm: 'Are you sure?' }, :method => :delete
